@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+     <div class="col-12">
+           <div class="text-center">             
+            <h1 class="d-inline"> Enter Your Task </h1>
+           </div>
+            <form action="/new-todo" method="post">       
+                <div class="form-group row">
+                     <label class="col-sm-2 text-right" for="name"><b>Name :</b> </label>
+                     <div class="col-sm-6">
+                       <input type="text" class="form-control" id="name" placeholder="name" name="name" aria-describedby="nameHint" required>
+                     </div>
+                    <small id="nameHint" class="text-muted">
+                        Your Name
+                    </small>
+                </div> 
+                             
+                <div class="form-group row">
+                     <label class="col-sm-2 text-right" for="title"><b>Title :</b> </label>
+                     <div class=" col-sm-6">
+                        <input type="text" class="form-control" id="title" placeholder="ToDo Title" name="title" aria-describedby="titleHint" required>
+                     </div>
+                    <small id="titleHint" class="text-muted col-sm-4">
+                        Title For The Task
+                    </small>                 
+                </div>            
+                <div class="form-group row py-1">
+                    <label for="body" class="col-sm-2 col-form-label text-right"> <b>Body :</b></label>
+                    <div class="col-sm-10">
+                    <textarea type="textarea" name="body" class="form-control" rows="4" id="body" placeholder="ToDo Body" required></textarea>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-outline-info">Submit</button>
+                    <button type="reset" class="btn btn-outline-danger">Reset</button>
+                </div>              
+            </form>
+        </div>
+  </div>
+</div>
+<br> <br> <br>

@@ -1,0 +1,82 @@
+<div class="container-fluid pt-1 pb-4">
+    <div class="row">
+        <div class="col-12 col-md-5 line_r">
+            <h1 class="text-center"> Enter Your Task </h1> <hr class="m-3"> 
+            <form action="/new-todo" method="post">       
+                <div class="form-group row">
+                     <label class="col-sm-2 text-right" for="name"><b>Name :</b> </label>
+                     <div class="col-sm-6">
+                       <input type="text" class="form-control" id="name" placeholder="name" name="name" aria-describedby="nameHint" required>
+                     </div>
+                    <small id="nameHint" class="text-muted">
+                        Your Name
+                    </small>
+                </div> 
+                             
+                <div class="form-group row">
+                     <label class="col-sm-2 text-right" for="title"><b>Title :</b> </label>
+                     <div class=" col-sm-6">
+                        <input type="text" class="form-control" id="title" placeholder="ToDo Title" name="title" aria-describedby="titleHint" required>
+                     </div>
+                    <small id="titleHint" class="text-muted col-sm-4">
+                        Title For The Task
+                    </small>                 
+                </div>            
+                <div class="form-group row py-1">
+                    <label for="body" class="col-sm-2 col-form-label text-right"> <b>Body :</b></label>
+                    <div class="col-sm-10">
+                    <textarea type="textarea" name="body" class="form-control" rows="4" id="body" placeholder="ToDo Body" required></textarea>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-outline-info">Submit</button>
+                    <button type="reset" class="btn btn-outline-danger">Reset</button>
+                </div>              
+            </form>
+        </div>
+
+        <div class="col-12 col-md-7">
+            <h3 class="text-center"> All List of your Remaining Task</h3>
+ {{#if allListKo}}
+            <div class="row">
+                <div class="col-12">
+                    <div class="scroll">
+                       
+                   {{#each allListKo}}
+                    <div class="p-2">                   
+                        <div class="card">
+                            <div class="card-header p-2 clearfix">
+                                <div class="pull-left">
+                                <h4 class=" d-inline">{{this.title}}  </h4>
+                                <p class="d-inline">By</p>
+                                <small class="text-info d-inline">{{this.name}}</small>
+                                </div>
+                                <div class="pull-right">
+                                    <button class="btn btn-sm btn-outline-info">
+                                      <a href="/edit/todo/{{this.id}}"> edit</a> 
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-danger">
+                                    <a href="{{this.id}}" class="text-warning"> 
+                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                    </a> 
+                                    </button>                                
+                                </div>                                                      
+                            </div>
+                            <div class="card-body">
+                            <div>
+                                <b> {{this.body}}</b>                 
+                            </div>
+                            </div>
+                        </div>
+                     </div>
+                   {{/each}}
+                  
+                   </div>
+                </div>
+            </div>
+         {{/if}}
+        </div>
+    </div>
+</div>
+
+
