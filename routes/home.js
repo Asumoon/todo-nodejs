@@ -18,24 +18,48 @@ router.post('/new-todo', (req, res, next) => {
     })
 })
 
-router.delete('/:_id', (req, res, next) => {
-    var _id = req.param._id;
-    res.redirect('/');
-})
+// Delete single Article
+router.delete('/delete/:_id', (req, res, next) => {
+    let query = {_id:req.param._id} ;
+    ToDoApp.remove(query, function(err){
+        if(err){
+            console.log(err);
+        }
+        res.send('Success');
+    });
+});
 
+// Homepage Route 
 router.get('/', (req, res, next) => {
      res.render('home',{
         allListKo: ToDoApp.find({}).sort({_id:-1}).limit(20)
     });
 })
 
-router.get('/edit/todo/:_id', (req, res, next) => {
-    var _id = req.params._id;
-     res.render('edit');
+// Display Single Article
+router.get('/edit/todo/:_idname', (req, res, next) => {
+   var name = req.params._idname;
+   console.log(name)
+     res.render('edit',{
+        editSingle: ToDoApp.findOne({"_id":name})
+     });
 })
 
-router.put('/new-todo/:_id', (req, res, next) => {
-    res.render('home');
+// update single article 
+router.post('/edit/todo/:_id', (req, res, next) => {  
+    let todoApp = {};
+    todoApp.name = req.body.name;
+    todoApp.title = req.body.title;
+    todoApp.body = req.body.body;
+   
+    let query = {_id:req.params._id}
+    ToDoApp.update(query, todoApp, function(err) {
+        if(err){
+            res.send('failde to register');
+        } else {
+            res.redirect('/');
+        }
+    })
 })
 
 module.exports = router;

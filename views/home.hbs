@@ -55,11 +55,15 @@
                                     <button class="btn btn-sm btn-outline-info">
                                       <a href="/edit/todo/{{this.id}}"> edit</a> 
                                     </button>
+                                    <a class="text-warning delete-article" href="#" data-id={{this._id}}> 
+                                   delete                                
+                                    </a>
+
+                                    {{!-- <a class="text-warning delete-article" href="#" data-id={{this._id}}> 
                                     <button class="btn btn-sm btn-outline-danger">
-                                    <a href="{{this.id}}" class="text-warning"> 
                                         <i class="fa fa-times" aria-hidden="true"></i>
-                                    </a> 
                                     </button>                                
+                                    </a>  --}}
                                 </div>                                                      
                             </div>
                             <div class="card-body">
@@ -78,5 +82,4 @@
         </div>
     </div>
 </div>
-
 
