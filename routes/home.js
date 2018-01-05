@@ -37,9 +37,8 @@ router.get('/', (req, res, next) => {
 })
 
 // Display Single Article
-router.get('/edit/todo/:_idname', (req, res, next) => {
-   var name = req.params._idname;
-   console.log(name)
+router.get('/old/edit/todo/:_idname', (req, res, next) => {
+   var name = req.params._idname;   
      res.render('edit',{
         editSingle: ToDoApp.findOne({"_id":name})
      });

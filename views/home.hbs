@@ -47,15 +47,16 @@
                         <div class="card">
                             <div class="card-header p-2 clearfix">
                                 <div class="pull-left">
-                                <h4 class=" d-inline">{{this.title}}  </h4>
-                                <p class="d-inline">By</p>
-                                <small class="text-info d-inline">{{this.name}}</small>
+                                <h4 class="text-primary d-inline">{{this.title}}  </h4>
+                                <p class="d-inline"> By </p>
+                                <small class="text-info d-inline"> <b>{{this.name}}</b> </small>
                                 </div>
                                 <div class="pull-right">
                                     <button class="btn btn-sm btn-outline-info">
-                                      <a href="/edit/todo/{{this.id}}"> edit</a> 
+                                      <a href="/old/edit/todo/{{this._id}}"> edit </a> 
                                     </button>
-                                    <a class="text-warning delete-article" href="#" data-id={{this._id}}> 
+
+                                    <a class="btn btn-sm btn-outline-danger delete-article" href="#" data-id={{this._id}}> 
                                    delete                                
                                     </a>
 
@@ -66,9 +67,9 @@
                                     </a>  --}}
                                 </div>                                                      
                             </div>
-                            <div class="card-body">
-                            <div>
-                                <b> {{this.body}}</b>                 
+                            <div class="card-body p-2">
+                            <div class="text-success">
+                               <h5> <b> {{{this.body}}} </b> </h5>                
                             </div>
                             </div>
                         </div>
