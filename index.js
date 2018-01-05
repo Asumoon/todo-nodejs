@@ -33,7 +33,7 @@ app.use("/popper", express.static(__dirname + "/node_modules/popper.js/dist/"));
 const home_page = require('./routes/home'); // Index-Page
 
 // Port Number to Start 
-const port = 3300;
+const port = process.env.PORT || 8080 ;
 
 app.use(cors());
 app.use(require('express-promise')()); // Express rendering
