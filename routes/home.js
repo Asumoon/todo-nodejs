@@ -19,8 +19,8 @@ router.post('/new-todo', (req, res, next) => {
 })
 
 // Delete single Article
-router.delete('/delete/:_id', (req, res, next) => {
-    let query = {_id:req.param._id} ;
+router.delete('/delete/:id', (req, res, next) => {
+    let query = {_id:req.params.id};
     ToDoApp.remove(query, function(err){
         if(err){
             console.log(err);
